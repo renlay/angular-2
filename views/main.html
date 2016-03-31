@@ -1,0 +1,23 @@
+
+<h1> {{ title }} </h1>
+<div>
+	<span> My favorite hero is {{ favoriteHero.name  }} </span>
+</div>
+<div>
+	<h3>Other Marvel heroes</h3>
+
+	<ul>
+		<div *ngFor="#hero of allHeros">
+			<li *ngIf="favoriteHero.id !== hero.id">
+				<span > {{ hero.name }} </span>
+			</li>
+		</div>
+	</ul>
+
+	<h4>Add more hero?</h4>
+	<input type="button" value="Add" (click)="showInput = true" />
+
+	<div *ngIf="showInput">
+		<input type="text" #newHero (keyup.enter)="addHero( newHero )">
+	</div>
+</div>
